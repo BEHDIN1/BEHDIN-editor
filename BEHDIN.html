@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behdin | ویرایشگر عکس</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    header {
+      background: #3b82f6;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background: #1e40af;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    nav .lang-switch {
+      cursor: pointer;
+    }
+    main {
+      padding: 1rem;
+    }
+    .editor {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .preview img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+    .tools button {
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #3b82f6;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="site-title">ویرایشگر عکس بهدین</h1>
+  </header>
+  <nav>
+    <span id="menu-home">خانه</span>
+    <span id="menu-about">درباره ما</span>
+    <span id="menu-contact">تماس با ما</span>
+    <span class="lang-switch" onclick="switchLang()">EN</span>
+  </nav>
+  <main>
+    <div class="editor">
+      <input type="file" id="upload" accept="image/*">
+      <div class="preview">
+        <img id="preview-img" src="" alt="پیش‌نمایش" style="display:none;">
+      </div>
+      <div class="tools">
+        <button onclick="rotateImg()">چرخاندن</button>
+        <button onclick="resetImg()">بازنشانی</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    let currentRotation = 0;
+    const img = document.getElementById('preview-img');document.getElementById('upload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      img.src = evt.target.result;
+      img.style.display = 'block';
+      img.style.transform = 'rotate(0deg)';
+      currentRotation = 0;
+    }
+    reader.readAsDataURL(file);
+  }
+});
+
+function rotateImg() {
+  currentRotation += 90;
+  img.style.transform = `rotate(${currentRotation}deg)`;
+}
+
+function resetImg() {
+  currentRotation = 0;
+  img.style.transform = 'rotate(0deg)';
+}
+
+function switchLang() {
+  const currentLang = document.documentElement.lang;
+  if (currentLang === 'fa') {
+    document.documentElement.lang = 'en';
+    document.documentElement.dir = 'ltr';
+    document.getElementById('site-title').innerText = 'Behdin Photo Editor';
+    document.getElementById('menu-home').innerText = 'Home';
+    document.getElementById('menu-about').innerText = 'About';
+    document.getElementById('menu-contact').innerText = 'Contact';
+    document.querySelector('.lang-switch').innerText = 'FA';
+  } else {
+    document.documentElement.lang = 'fa';
+    document.documentElement.dir = 'rtl';
+    document.getElementById('site-title').innerText = 'ویرایشگر عکس بهدین';
+    document.getElementById('menu-home').innerText = 'خانه';
+    document.getElementById('menu-about').innerText = 'درباره ما';
+    document.getElementById('menu-contact').innerText = 'تماس با ما';
+    document.querySelector('.lang-switch').innerText = 'EN';
+  }
+}
+
+  </script>
+</body>
+</html><!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behdin | ویرایشگر عکس</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    header {
+      background: #3b82f6;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background: #1e40af;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    nav .lang-switch {
+      cursor: pointer;
+    }
+    main {
+      padding: 1rem;
+    }
+    .editor {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .preview img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+    .tools button {
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #3b82f6;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="site-title">ویرایشگر عکس بهدین</h1>
+  </header>
+  <nav>
+    <span id="menu-home">خانه</span>
+    <span id="menu-about">درباره ما</span>
+    <span id="menu-contact">تماس با ما</span>
+    <span class="lang-switch" onclick="switchLang()">EN</span>
+  </nav>
+  <main>
+    <div class="editor">
+      <input type="file" id="upload" accept="image/*">
+      <div class="preview">
+        <img id="preview-img" src="" alt="پیش‌نمایش" style="display:none;">
+      </div>
+      <div class="tools">
+        <button onclick="rotateImg()">چرخاندن</button>
+        <button onclick="resetImg()">بازنشانی</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    let currentRotation = 0;
+    const img = document.getElementById('preview-img');document.getElementById('upload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      img.src = evt.target.result;
+      img.style.display = 'block';
+      img.style.transform = 'rotate(0deg)';
+      currentRotation = 0;
+    }
+    reader.readAsDataURL(file);
+  }
+});
+
+function rotateImg() {
+  currentRotation += 90;
+  img.style.transform = `rotate(${currentRotation}deg)`;
+}
+
+function resetImg() {
+  currentRotation = 0;
+  img.style.transform = 'rotate(0deg)';
+}
+
+function switchLang() {
+  const currentLang = document.documentElement.lang;
+  if (currentLang === 'fa') {
+    document.documentElement.lang = 'en';
+    document.documentElement.dir = 'ltr';
+    document.getElementById('site-title').innerText = 'Behdin Photo Editor';
+    document.getElementById('menu-home').innerText = 'Home';
+    document.getElementById('menu-about').innerText = 'About';
+    document.getElementById('menu-contact').innerText = 'Contact';
+    document.querySelector('.lang-switch').innerText = 'FA';
+  } else {
+    document.documentElement.lang = 'fa';
+    document.documentElement.dir = 'rtl';
+    document.getElementById('site-title').innerText = 'ویرایشگر عکس بهدین';
+    document.getElementById('menu-home').innerText = 'خانه';
+    document.getElementById('menu-about').innerText = 'درباره ما';
+    document.getElementById('menu-contact').innerText = 'تماس با ما';
+    document.querySelector('.lang-switch').innerText = 'EN';
+  }
+}
+
+  </script>
+</body>
+</html>
